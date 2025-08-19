@@ -8,6 +8,7 @@ import { Shield, ArrowLeft, ShoppingCart, Star, Search, Grid, List } from "lucid
 import Link from "next/link"
 import { products, productCategories, type Product } from "@/lib/products"
 import { useCart } from "@/lib/cart-context"
+import Image from "next/image";
 
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
@@ -78,6 +79,15 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* Company Logo */}
+      <div className="flex justify-center py-6">
+        <Image
+          src="/products/Bullet.png"
+          alt="Orion Integra Logo"
+          width={120}
+          height={120}
+        />
+      </div>
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-purple-500/20">
         <div className="container mx-auto px-4 py-4">
@@ -282,9 +292,8 @@ export default function ProductsPage() {
               {filteredProducts.map((product) => (
                 <Card
                   key={product.id}
-                  className={`bg-gradient-to-br from-gray-900 to-gray-800 border-purple-500/20 hover:border-cyan-400/50 transition-all duration-300 group ${
-                    viewMode === "list" ? "flex flex-row" : ""
-                  }`}
+                  className={`bg-gradient-to-br from-gray-900 to-gray-800 border-purple-500/20 hover:border-cyan-400/50 transition-all duration-300 group ${viewMode === "list" ? "flex flex-row" : ""
+                    }`}
                 >
                   <CardContent className={`p-6 ${viewMode === "list" ? "flex w-full gap-6" : ""}`}>
                     {/* Product Image */}
@@ -313,9 +322,8 @@ export default function ProductsPage() {
                           {[...Array(5)].map((_, i) => (
                             <Star
                               key={i}
-                              className={`h-4 w-4 ${
-                                i < Math.floor(product.rating) ? "text-yellow-400 fill-current" : "text-gray-600"
-                              }`}
+                              className={`h-4 w-4 ${i < Math.floor(product.rating) ? "text-yellow-400 fill-current" : "text-gray-600"
+                                }`}
                             />
                           ))}
                         </div>
