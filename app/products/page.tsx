@@ -79,15 +79,6 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Company Logo */}
-      <div className="flex justify-center py-6">
-        <Image
-          src="/products/Bullet.png"
-          alt="Orion Integra Logo"
-          width={120}
-          height={120}
-        />
-      </div>
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-purple-500/20">
         <div className="container mx-auto px-4 py-4">
