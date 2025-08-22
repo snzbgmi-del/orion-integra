@@ -17,6 +17,7 @@ import {
   Lock,
 } from "lucide-react"
 import Link from "next/link"
+import { AuthNav } from "@/components/auth-nav"
 
 export default function HomePage() {
   return (
@@ -48,21 +49,7 @@ export default function HomePage() {
                 Contact
               </Link>
             </div>
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="outline"
-                className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black bg-transparent"
-                asChild
-              >
-                <Link href="/auth/login">Login</Link>
-              </Button>
-              <Button
-                className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600"
-                asChild
-              >
-                <Link href="/auth/signup">Sign Up</Link>
-              </Button>
-            </div>
+            <AuthNav />
           </div>
         </div>
       </nav>
