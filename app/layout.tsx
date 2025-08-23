@@ -2,14 +2,14 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { CartProvider } from "@/lib/cart-context"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Orion Integra - Advanced Security Solutions",
+  title: "Futuristic Interface - Next-Gen Experience",
   description:
-    "Professional CCTV systems, intelligent monitoring, and comprehensive security solutions for homes and businesses. Securing your future, today.",
+    "Experience a next-gen interface with fluid motion and a one-tap Dark/Light switch that transforms the entire UI.",
     generator: 'v0.app'
 }
 
@@ -19,9 +19,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <CartProvider>{children}</CartProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
