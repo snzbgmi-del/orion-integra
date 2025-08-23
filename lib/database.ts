@@ -26,6 +26,18 @@ export interface ProductImage {
   uploaded_at: Date
 }
 
+export interface ProductWithImages {
+  id: string
+  name: string
+  description: string
+  price: number
+  category: string
+  stock: number
+  created_at: Date
+  updated_at: Date
+  images: ProductImage[]
+}
+
 export class DatabaseService {
   static async getProductImages(productId: string): Promise<ProductImage[]> {
     const sql = getSqlClient()
@@ -56,7 +68,7 @@ export class DatabaseService {
         )
         RETURNING *
       `
-      return result[0] as ProductImage
+      return (result as ProductImage[])[0] as ProductImage
     } catch (error) {
       console.error("Error adding product image:", error)
       return null
